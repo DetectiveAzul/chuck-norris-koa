@@ -5,6 +5,8 @@
   "proxy": "http://localhost:3001",
   "dependencies": {
     "@reach/router": "^1.1.1",
+    "auth0-js": "^9.7.3",
+    "jwt-decode": "^2.2.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-router": "^4.3.1",
