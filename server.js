@@ -6,5 +6,13 @@ const cors = require('koa-cors');
 const bodyParser = require('koa-bodyparser');
 
 app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser());
+
+const PORT = process.env.PORT || 3000;
+
+//Server starts
+const server = app.listen(PORT, () => {
+  console.log(`Server listening on port: ${PORT}`);
+});
+
+module.exports = server;
