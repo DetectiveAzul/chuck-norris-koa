@@ -12,8 +12,9 @@ class FoodJokes extends Component {
   }
 
   getFoodJokes() {
-    getFoodData().then((jokes) => {
-      this.setState({ jokes.data });
+    getFoodData()
+      .then((jokes) => {
+        this.setState({ jokes: jokes.data });
     });
   }
 
