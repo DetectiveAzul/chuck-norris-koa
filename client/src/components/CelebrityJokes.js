@@ -12,7 +12,8 @@ class CelebrityJokes extends Component {
   }
 
   getCelebrityJokes() {
-    getCelebrityData().then((jokes) => {
+    getCelebrityData()
+    .then((jokes) => {
       this.setState({ jokes: jokes.data });
     });
   }
@@ -42,7 +43,7 @@ class CelebrityJokes extends Component {
     return (
       <div>
         <Nav />
-        <h3 className="text-center">Privileged Chuck Norris Celebrity Jokes</h3>
+        <h3 className="text-center">Protected Chuck Norris Celebrity Jokes</h3>
         <hr/>
         {this.createJokeElements(this.state.jokes)}
         <div className="col-sm-12">
