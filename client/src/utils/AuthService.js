@@ -1,23 +1,17 @@
 import decode from 'jwt-decode';
-//TODO: check how to add this to REACH ROUTER 
-// import { browserHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import auth0 from 'auth0-js';
 
 const ID_TOKEN_KEY = 'id_token';
 const ACCESS_TOKEN_KEY = 'access_token';
 
-const CLIENT_ID = '{AUTH0_CLIENT_ID}';
-const CLIENT_DOMAIN = 'AUTH0_DOMAIN';
-const REDIRECT = 'YOUR_CALLBACK_URL';
-const SCOPE = 'YOUR_SCOPE';
-const AUDIENCE = 'AUDIENCE_ATTRIBUTE';
+const CLIENT_ID = 'KEDqteOHvnQ3SystYaYMSSncRElXPqET';
+const CLIENT_DOMAIN = 'devazul.eu.auth0.com';
+const REDIRECT = 'http://localhost:3000/callback';
+const SCOPE = 'openid';
+const AUDIENCE = 'https://devazul.eu.auth0.com/userinfo';
 
-
-
-
-
-
-var auth = new auth0.WebAuth({
+const auth = new auth0.WebAuth({
   clientID: CLIENT_ID,
   domain: CLIENT_DOMAIN
 });
@@ -29,12 +23,16 @@ export function login() {
     audience: AUDIENCE,
     scope: SCOPE
   });
+  console.log('logging in!')
 }
 
 export function logout() {
   clearIdToken();
   clearAccessToken();
   browserHistory.push('/');
+  console.log('logging out!')
+  console.log(browserHistory);
+
 }
 
 export function requireAuth(nextState, replace) {
@@ -68,13 +66,13 @@ function getParameterByName(name) {
 // Get and store access_token in local storage
 export function setAccessToken() {
   let accessToken = getParameterByName('access_token');
-  localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
+  if(accessToken) localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
 }
 
 // Get and store id_token in local storage
 export function setIdToken() {
   let idToken = getParameterByName('id_token');
-  localStorage.setItem(ID_TOKEN_KEY, idToken);
+  if(idToken) localStorage.setItem(ID_TOKEN_KEY, idToken);
 }
 
 export function isLoggedIn() {

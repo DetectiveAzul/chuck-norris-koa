@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from '@reach/router';
+import { Link } from 'react-router';
 import { getCelebrityData } from '../utils/chucknorris_api';
+import Nav from './Nav';
+
 
 class CelebrityJokes extends Component {
 
@@ -39,6 +41,7 @@ class CelebrityJokes extends Component {
 
     return (
       <div>
+        <Nav />
         <h3 className="text-center">Privileged Chuck Norris Celebrity Jokes</h3>
         <hr/>
         {this.createJokeElements(this.state.jokes)}

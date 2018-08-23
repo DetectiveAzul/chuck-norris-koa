@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import CelebrityJokes from './components/CelebrityJokes';
 import FoodJokes from './components/FoodJokes';
-import Nav from './components/Nav';
-import { Router } from '@reach/router';
+import Callback from './components/Callback';
+import { browserHistory, Router, Route } from 'react-router'
 
 const Root = () => {
   return (
     <div className="container">
-      <Nav />
-      <Router>
-        <FoodJokes path="/" />
-        <CelebrityJokes path="/special" />
+      <Router history={browserHistory}>
+        <Route path="/" component={FoodJokes}/>
+        <Route path="/special" component={CelebrityJokes}/>
+        <Route path="/callback" component={Callback}/>
       </Router>
     </div>
   )
