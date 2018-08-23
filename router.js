@@ -13,7 +13,7 @@ const authCheck = jwt(
       jwksRequestsPerMinute: 5,
       jwksUri: "https://devazul.eu.auth0.com/.well-known/jwks.json"
     }),
-    audience: 'chucknorris.es',
+    audience: "chucknorris.es",
     issuer: "https://devazul.eu.auth0.com/",
     algorithms: ['RS256']
 });
@@ -32,7 +32,7 @@ router.get('/api/v1/food/', async (ctx) => {
   };
 });
 
-router.get('/api/v1/celebrity/', authCheck,  async (ctx) => {
+router.get('/api/v1/celebrity/', /*authCheck,*/  async (ctx) => {
   ctx.body = {
     status: 'success',
     data: celebrity
