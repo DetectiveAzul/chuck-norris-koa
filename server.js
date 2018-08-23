@@ -8,6 +8,20 @@ const bodyParser = require('koa-bodyparser');
 app.use(bodyParser());
 app.use(cors());
 
+//Auth0
+const authCheck = jwt(
+  {
+    secret: jwks.expressJwtSecret({
+      cache: true,
+      rateLimit: true,
+      jwksRequestsPerMinute: 5,
+      jwksUri: "https://devazul.eu.auth0.com/.well-known/jwks.json"
+    }),
+    audience: 'chucknorris.es',
+    issuer: "https://devazul.eu.auth0.com/",
+    algorithms: ['RS256']
+});
+
 //Routes
 const index = require('./router.js')
 app.use(index.routes());
