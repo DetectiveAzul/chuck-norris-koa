@@ -25,7 +25,7 @@ class FoodJokes extends Component {
     if (!jokes) return;
     return jokes.map((joke, index) => (
       <div className="col-sm-6" key={index}>
-        <div className="panel panel-danger">
+        <div className="panel panel-primary">
           <div className="panel-heading">
             <h3 className="panel-title"><span className="btn">#{ joke.id }</span></h3>
           </div>
