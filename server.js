@@ -11,7 +11,7 @@ app.use(bodyParser());
 const index = require('./router.js')
 app.use(index.routes());
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 //Server starts
 const server = app.listen(PORT, () => {
