@@ -1,30 +1,17 @@
 import { getAccessToken } from './AuthService';
+import axios from 'axios';
 const BASE_URL = 'http://localhost:3001/api/v1';
 
-const getFoodData = async () => {
-    try {
-      const response = await fetch(`${BASE_URL}/food`);
-      return await response.json();
-    }
-    catch(error) {
-      return error;
-    }
-};
+function getFoodData() {
+  const url = `${BASE_URL}/food`;
+  return axios.get(url)
+    .then(response => response.data);
+}
 
-const getCelebrityData = async () => {
-  const token = getAccessToken();
-  try {
-    const response = await fetch(`${BASE_URL}/celebrity`, {
-        method: 'GET',
-        headers: { Authorization: `Bearer ${token}` },
-        cache: 'default',
-        mode: 'no-cors'
-      })
-    return await response.json();
-  }
-  catch(error) {
-    return error;
-  }
-};
+function getCelebrityData() {
+  const url = `${BASE_URL}/celebrity`;
+  return axios.get(url)
+    .then(response => response.data);
+}
 
 export {getFoodData, getCelebrityData};

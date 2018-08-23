@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { getCelebrityData } from '../utils/chucknorris_api';
+import { isLoggedIn } from '../utils/AuthService';
 import Nav from './Nav';
 
 
@@ -45,7 +46,7 @@ class CelebrityJokes extends Component {
         <Nav />
         <h3 className="text-center">Protected Chuck Norris Celebrity Jokes</h3>
         <hr/>
-        {this.createJokeElements(this.state.jokes)}
+        {isLoggedIn() ? this.createJokeElements(this.state.jokes) : " "}
         <div className="col-sm-12">
           <div className="jumbotron text-center">
             <h2>View Food Jokes</h2>
