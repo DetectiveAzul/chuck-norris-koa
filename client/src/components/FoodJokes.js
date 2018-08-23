@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import Nav from './Nav';
 import { getFoodData } from '../utils/chucknorris_api.js';
 
