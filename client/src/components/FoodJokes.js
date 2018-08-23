@@ -22,29 +22,30 @@ class FoodJokes extends Component {
     this.getFoodJokes();
   }
 
-  render() {
+  createJokeElements(jokes) {
+    if (!jokes) return;
+    return jokes.map((joke, index) => (
+      <div className="col-sm-6" key={index}>
+        <div className="panel panel-danger">
+          <div className="panel-heading">
+            <h3 className="panel-title"><span className="btn">#{ joke.id }</span></h3>
+          </div>
+          <div className="panel-body">
+            <p> { joke.joke } </p>
+          </div>
+        </div>
+      </div>
+  ))
+  }
 
-    const { jokes }  = this.state;
+  render() {
 
     return (
       <div>
         <Nav />
         <h3 className="text-center">Chuck Norris Food Jokes</h3>
         <hr/>
-
-        { jokes.map((joke, index) => (
-              <div className="col-sm-6" key={index}>
-                <div className="panel panel-primary">
-                  <div className="panel-heading">
-                    <h3 className="panel-title"> <span className="btn">#{ joke.id }</span></h3>
-                  </div>
-                  <div className="panel-body">
-                    <p> { joke.joke } </p>
-                  </div>
-                </div>
-              </div>
-          ))}
-
+        {this.createJokeElements(this.state.jokes)}
         <div className="col-sm-12">
           <div className="jumbotron text-center">
             <h2>Get Access to Celebrity Jokes By Logging In</h2>
