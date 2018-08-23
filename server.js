@@ -5,8 +5,11 @@ const jwks = require('jwks-rsa');
 const cors = require('koa-cors');
 const bodyParser = require('koa-bodyparser');
 
-app.use(cors());
 app.use(bodyParser());
+
+//Routes
+const index = require('./router.js')
+app.use(index.routes());
 
 const PORT = process.env.PORT || 3000;
 
