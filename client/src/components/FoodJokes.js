@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Nav from './Nav';
+import { Link } from '@reach/router';
 import { getFoodData } from '../utils/chucknorris_api.js';
 
 
@@ -42,7 +41,6 @@ class FoodJokes extends Component {
 
     return (
       <div>
-        <Nav />
         <h3 className="text-center">Chuck Norris Food Jokes</h3>
         <hr/>
         {this.createJokeElements(this.state.jokes)}

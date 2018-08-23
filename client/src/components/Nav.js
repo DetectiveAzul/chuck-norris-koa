@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
-import 'nav.css';
+import { Link } from '@reach/router';
+import './nav.css';
 
 class Nav extends Component {
 
