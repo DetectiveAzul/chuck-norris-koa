@@ -1,6 +1,6 @@
 const BASE_URL = 'http://localhost:3001/api/v1/';
 
-const getFoodJokes = () => {
+const getFoodData = () => {
     try {
       const response = await fetch(`${BASE_URL}/food`);
       return await response.json();
@@ -10,7 +10,7 @@ const getFoodJokes = () => {
     }
 };
 
-const getCelebrityJokes = () => {
+const getCelebrityData = () => {
   try {
     const response = await fetch(`${BASE_URL}/celebrity`);
     return await response.json();
@@ -20,4 +20,4 @@ const getCelebrityJokes = () => {
   }
 };
 
-export {getFoodJokes, getCelebrityJokes};
+export {getFoodData, getCelebrityData};
