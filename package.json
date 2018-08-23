@@ -16,5 +16,8 @@
     "koa-bodyparser": "^4.2.1",
     "koa-cors": "0.0.16",
     "koa-jwt": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
   }
 }
